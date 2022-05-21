@@ -1,0 +1,45 @@
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Run compresssion
+      run: |        
+        ls
+        python3 compressFiles.py
+    - name: Push
+      run: |
+        git config --global user.email "coder.utils@gmail.com"
+        git config --global user.name "coderprojects"
+        git config --global push.default simple
+        git remote rm origin
+        git remote add origin https://coderprojects:$GH_token_public_repo@github.com/coderprojects/scrap-BisonFute2.git
+        echo "====================================="
+        git add QTV_Data/*.zip    
+        git add RRN_Data/*.zip
+        git status
+        echo "====================================="
+        git add -u  
+        git commit -m "compression" 
+        git status
+        echo "====================================="        
+        git push origin HEAD:main
