@@ -31,16 +31,17 @@ for link in page.findAll("a"): #[1:10]:
     if hasExtension(link.get("href"), "xml"):
         fileLink = link.get("href")
         fileName = fileNameinfo(fileLink)
-        path_to_save_rep = os.path.join(REP_DATA, "{}00".format(fileName[:len(fileName) - 2]))
-        zip_path_to_save_rep = "{}.zip".format(path_to_save_rep)
-        if not os.path.isfile(zip_path_to_save_rep):
-            os.makedirs(path_to_save_rep, exist_ok=True)
-            path_to_save_file = os.path.join(path_to_save_rep, fileLink)
+        if not fileName == "content":
+            path_to_save_rep = os.path.join(REP_DATA, "{}00".format(fileName[:len(fileName) - 2]))
+            zip_path_to_save_rep = "{}.zip".format(path_to_save_rep)
+            if not os.path.isfile(zip_path_to_save_rep):
+                os.makedirs(path_to_save_rep, exist_ok=True)
+                path_to_save_file = os.path.join(path_to_save_rep, fileLink)
 
-            if not os.path.isfile(path_to_save_file):
-                request.urlretrieve(URL_BISON_FUTE_RRN + fileLink, path_to_save_file)
-                print(fileLink, " downloaded")
+                if not os.path.isfile(path_to_save_file):
+                    request.urlretrieve(URL_BISON_FUTE_RRN + fileLink, path_to_save_file)
+                    print(fileLink, " downloaded")
+                else:
+                    print(path_to_save_file, " already exists")
             else:
-                print(path_to_save_file, " already exists")
-        else:
-            print(zip_path_to_save_rep, " already exists")
+                print(zip_path_to_save_rep, " already exists")
