@@ -35,8 +35,7 @@ jobs:
         git remote rm origin
         git remote add origin https://coderprojects:$GH_token_public_repo@github.com/coderprojects/scrap-BisonFute2.git
         echo "====================================="
-        git add QTV_Data/*.zip    
-        git add RRN_Data/*.zip
+        git add .
         git status
         echo "====================================="
         git add -u  
