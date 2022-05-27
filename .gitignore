@@ -128,4 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
+config.py
+.DS_Store
+__pycache__/
+venv/
+
+
 
