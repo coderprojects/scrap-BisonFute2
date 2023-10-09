@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<d2LogicalModel modelBaseVersion="2" xmlns="http://datex2.eu/schema/2/2_0">
+    <exchange>
+        <supplierIdentification>
+            <country>fr</country>
+            <nationalIdentifier>TIPI</nationalIdentifier>
+        </supplierIdentification>
+        <subscription>
+            <operatingMode>operatingMode3</operatingMode>
+            <subscriptionStartTime>2023-10-09T13:48:00.000+02:00</subscriptionStartTime>
+            <subscriptionState>active</subscriptionState>
+            <subscriptionStopTime>2023-10-09T13:54:00.000+02:00</subscriptionStopTime>
+            <updateMethod>snapshot</updateMethod>
+            <target>
+                <address></address>
+                <protocol></protocol>
+            </target>
+        </subscription>
+    </exchange>
+    <payloadPublication xsi:type="MeasuredDataPublication" lang="fre" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <publicationTime>2023-10-09T13:48:00.000+02:00</publicationTime>
+        <publicationCreator>
+            <country>fr</country>
+            <nationalIdentifier>TIPI</nationalIdentifier>
+        </publicationCreator>
+        <measurementSiteTableReference targetClass="MeasurementSiteTable" id="" version="1"/>
+        <headerInformation>
+            <confidentiality>noRestriction</confidentiality>
+            <informationStatus>real</informationStatus>
+        </headerInformation>
+    </payloadPublication>
+</d2LogicalModel>
